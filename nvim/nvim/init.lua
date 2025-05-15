@@ -21,7 +21,6 @@ vim.cmd("filetype on")
 vim.cmd("filetype plugin on")
 vim.cmd("filetype indent on")
 vim.cmd("set number")
-vim.cmd("set relativenumber")
 
 -- Troca as teclas de mover no modo normal
 vim.cmd("nnoremap j h")
