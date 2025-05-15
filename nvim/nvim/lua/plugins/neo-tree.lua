@@ -10,7 +10,7 @@ return {
       lazy = false, -- neo-tree will lazily load itself
       opts = {
         window = {
-          width = 30,
+          width = 25,
         mappings = {
           ["j"] = "close_node",        -- esquerda
           ["k"] = "move_cursor_up",    -- cima
