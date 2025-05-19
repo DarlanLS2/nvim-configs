@@ -1,5 +1,7 @@
 require("config.lazy")
 
+vim.o.termguicolors = true
+vim.cmd('syntax on')
 vim.cmd("set expandtab")
 vim.cmd("set tabstop=2")
 vim.cmd("set softtabstop=2")
