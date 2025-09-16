@@ -183,9 +183,18 @@ function Keymaps.visual()
   })
 end
 
+function Keymaps.insert() 
+  vim.keymap.set("i", "<C-j>", "<C-w>", {
+    noremap = true,
+    silent = true,
+    desc = "Apaga palavra anterior ao cursor"
+  })
+end
+
 function Keymaps.setup()
   Keymaps.normal()
   Keymaps.visual()
+  Keymaps.insert()
 end
 
 Keymaps.setup()
