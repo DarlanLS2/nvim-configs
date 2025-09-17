@@ -97,10 +97,16 @@ function Keymaps.normal()
     desc = "Arruma automaticamente a indentação da linha"
   })
 
-  vim.keymap.set("n", ";;", 'gcc', {
+  vim.keymap.set("n", "<C-k>", "{", {
     noremap = true,
     silent = true,
-    desc = "Comenta linha atual"
+    desc = "Pula para o início do bloco"
+  })
+
+  vim.keymap.set("n", "<C-l>", "}", {
+    noremap = true,
+    silent = true,
+    desc = "Pula para o fim do bloco"
   })
 
   vim.keymap.set("n", "<leader>sw", function()

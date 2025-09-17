@@ -1,38 +1,57 @@
 return {
   {
-    'nvim-telescope/telescope.nvim',
-    tag = '0.1.8',
+    'nvim-telescope/telescope.nvim', tag = '0.1.8',
+
     dependencies = {
-      { 'nvim-lua/plenary.nvim' },
-      { 'nvim-telescope/telescope-live-grep-args.nvim'},
+      'nvim-lua/plenary.nvim',
       { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' }
     },
-    config = function()
-      local builtin = require('telescope.builtin')
 
-      require('telescope').setup {
-        extension = {
-          fzf = {}
-        },
-        require('telescope').load_extension('fzf'),
+    config = function()
+      require('telescope').setup{
         defaults = {
           mappings = {
             i = {
               ["<C-l>"] = "move_selection_next",
-              ["<C-k>"] = "move_selection_previous",
-            },
-            n = {
-              ["l"] = "move_selection_next",
-              ["k"] = "move_selection_previous",
+              ["<C-k>"] = "move_selection_previous"
+            }
+          },
+
+          -- Personaliza a janela do telescope
+          layout_strategy = "horizontal",
+          layout_config = {
+            horizontal = {
+              prompt_position = "top",
+              width = { padding = 0 },
+              height = { padding = 0 },
+              preview_width = 0.5,
             },
           },
+          sorting_strategy = "ascending",
+
         }
       }
 
-      vim.keymap.set('n', '<leader>ff', builtin.find_files)
-      vim.keymap.set('n', '<leader>fd', builtin.diagnostics)
-      vim.keymap.set('n', '<leader>fs', builtin.lsp_document_symbols)
-      vim.keymap.set("n", "<leader>fg", ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>")
+      -- find_files so funciona direito se o arquivo for um repositorio
+      vim.keymap.set("n", "<leader>ff", require("telescope.builtin").find_files, {
+        desc = "Procura por arquivos"
+      })
+
+      vim.keymap.set("n", "<leader>fn", function()
+        require("telescope.builtin").find_files {
+          cwd = vim.fn.stdpath("config")
+        }
+      end, {
+        desc = "Abre o telescope no diretorio de configuração do nvim"
+      })
+
+      vim.keymap.set("n", "<leader>fr", require("telescope.builtin").registers, {
+        desc = "Abre a lista de registros"
+      })
+
+      vim.keymap.set("n", "<leader>fk", require("telescope.builtin").keymaps, {
+        desc = "Abre a lista de atalhos "
+      })
     end
   }
 }
