@@ -189,7 +189,7 @@ function Keymaps.visual()
   })
 end
 
-function Keymaps.insert() 
+function Keymaps.insert()
   vim.keymap.set("i", "<C-j>", "<C-w>", {
     noremap = true,
     silent = true,

@@ -49,6 +49,10 @@ return {
         desc = "Abre a lista de registros"
       })
 
+      vim.keymap.set("n", "<leader>fd", require("telescope.builtin").diagnostics, {
+        desc = "Abre a lista de erros"
+      })
+
       vim.keymap.set("n", "<leader>fk", require("telescope.builtin").keymaps, {
         desc = "Abre a lista de atalhos "
       })
