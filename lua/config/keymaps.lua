@@ -223,3 +223,7 @@ vim.keymap.del("n", "<C-n>") -- deleta a tecla padrao
 vim.keymap.set("n", "<leader>n", "<cmd>Neotree toggle<CR>", {
   desc = "Toggle Neo-tree"
 })
+-- TodoComments + Telescoper
+vim.keymap.set("n", "<leader>ft", "<cmd>TodoTelescope<CR>", {
+  desc = "Abrir TODOs com Telescope"
+})
