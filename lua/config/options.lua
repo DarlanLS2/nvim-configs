@@ -20,4 +20,27 @@ vim.cmd("set autoread")
 vim.cmd("filetype on")
 vim.cmd("filetype plugin on")
 vim.cmd("filetype indent on")
-vim.cmd("set colorcolumn=70")
+vim.cmd("set colorcolumn=80")
+vim.cmd("highlight ColorColumn guibg=#4B4B4B")
+
+vim.opt.number = true
+vim.opt.signcolumn = "yes"
+vim.opt.numberwidth = 7
+
+-- Personaliza barra de numeros deixando um espaço e um pipe("|") entre a barra
+-- lateral e o codigo
+vim.opt.statuscolumn = "%=%{printf('%4s', v:lnum)}  │  "
+
+-- Desativa numeração e barra lateral no Neo-tree
+vim.api.nvim_create_autocmd({ "FileType", "BufWinEnter" }, {
+  pattern = "neo-tree",
+  callback = function(args)
+    -- aguarda o Neo-tree terminar a config interna
+    vim.schedule(function()
+      vim.api.nvim_buf_set_option(args.buf, "number", false)
+      vim.api.nvim_buf_set_option(args.buf, "relativenumber", false)
+      vim.api.nvim_buf_set_option(args.buf, "signcolumn", "no")
+      vim.api.nvim_buf_set_option(args.buf, "statuscolumn", "")
+    end)
+  end,
+})
