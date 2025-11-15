@@ -29,7 +29,7 @@ vim.opt.numberwidth = 7
 
 -- Personaliza barra de numeros deixando um espaço e um pipe("|") entre a barra
 -- lateral e o codigo
-vim.opt.statuscolumn = "%=%{printf('%4s', v:lnum)}  │  "
+vim.opt.statuscolumn = "%=%{printf('%4s', v:lnum)}  │ "
 
 -- Desativa numeração e barra lateral no Neo-tree
 vim.api.nvim_create_autocmd({ "FileType", "BufWinEnter" }, {
