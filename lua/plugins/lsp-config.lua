@@ -15,11 +15,16 @@ return {
           "html",
           "cssls",
           "phpactor",
-          "java-language-server",
           "jdtls"
         },
       })
     end
+  },
+  {
+    "mfussenegger/nvim-jdtls",
+    dependecies = {
+      "mfussenegger/nvim-dap"
+    }
   },
   {
     "neovim/nvim-lspconfig",

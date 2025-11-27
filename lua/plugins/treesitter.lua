@@ -1,5 +1,4 @@
 return {
-  -- TODO: vai se foder
   'nvim-treesitter/nvim-treesitter',
   build = ':TSUpdate',
   event = { "BufReadPost", "BufNewFile" },
@@ -13,7 +12,8 @@ return {
         "javascript",
         "bash",
         "html",
-        "css"
+        "css",
+        "java"
       },
 
       -- Instala os parsers automaticamente ao abrir arquivo
