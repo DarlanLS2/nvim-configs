@@ -27,6 +27,7 @@ vim.opt.number = true
 vim.opt.signcolumn = "yes"
 vim.opt.numberwidth = 7
 
+
 -- Personaliza barra de numeros deixando um espaço e um pipe("|") entre a barra
 -- lateral e o codigo
 vim.opt.statuscolumn = "%=%{printf('%4s', v:lnum)}  │ "
@@ -39,7 +40,6 @@ vim.api.nvim_create_autocmd({ "FileType", "BufWinEnter" }, {
     vim.schedule(function()
       vim.api.nvim_buf_set_option(args.buf, "number", false)
       vim.api.nvim_buf_set_option(args.buf, "relativenumber", false)
-      vim.api.nvim_buf_set_option(args.buf, "signcolumn", "no")
       vim.api.nvim_buf_set_option(args.buf, "statuscolumn", "")
     end)
   end,

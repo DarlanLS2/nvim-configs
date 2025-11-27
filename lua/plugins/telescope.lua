@@ -31,31 +31,6 @@ return {
 
         }
       }
-
-      -- find_files so funciona direito se o arquivo for um repositorio
-      vim.keymap.set("n", "<leader>ff", require("telescope.builtin").find_files, {
-        desc = "Procura por arquivos"
-      })
-
-      vim.keymap.set("n", "<leader>fn", function()
-        require("telescope.builtin").find_files {
-          cwd = vim.fn.stdpath("config")
-        }
-      end, {
-        desc = "Abre o telescope no diretorio de configuração do nvim"
-      })
-
-      vim.keymap.set("n", "<leader>fr", require("telescope.builtin").registers, {
-        desc = "Abre a lista de registros"
-      })
-
-      vim.keymap.set("n", "<leader>fd", require("telescope.builtin").diagnostics, {
-        desc = "Abre a lista de erros"
-      })
-
-      vim.keymap.set("n", "<leader>fk", require("telescope.builtin").keymaps, {
-        desc = "Abre a lista de atalhos "
-      })
     end
   }
 }

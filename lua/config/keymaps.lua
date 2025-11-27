@@ -212,18 +212,45 @@ vim.keymap.set("n", "<leader><Tab>", "<C-w>w", {
   desc = "Move entre as janelas em sentido horario"
 })
 
--- lsp keys
-vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, {
-  desc = "Mostrar diagnostic flutuante"
-})
-
 -- neotree keymap
-vim.keymap.del("n", "<C-n>") -- deleta a tecla padrao
+vim.keymap.del("n", "<C-n>")
 
 vim.keymap.set("n", "<leader>n", "<cmd>Neotree toggle<CR>", {
   desc = "Toggle Neo-tree"
 })
--- TodoComments + Telescoper
+
+------------------------- LSP -------------------------
+vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, {desc = "Mostrar diagnostic flutuante"})
+
+vim.keymap.set('n', '<leader>ch', vim.lsp.buf.hover, {desc = "Mostra documentação do codigo que esta em cima"})
+
+vim.keymap.set('n', '<leader>cd', vim.lsp.buf.definition, {desc = "Mostra documentação do codigo que esta em cima"})
+
+
+---------------------  TELESCOPE ----------------------
 vim.keymap.set("n", "<leader>ft", "<cmd>TodoTelescope<CR>", {
   desc = "Abrir TODOs com Telescope"
+})
+
+vim.keymap.set("n", "<leader>ff", require("telescope.builtin").find_files, {
+  desc = "Procura por arquivos"
+})
+
+vim.keymap.set("n", "<leader>fn", function()
+  require("telescope.builtin").find_files {
+    cwd = vim.fn.stdpath("config")
+  }
+end, {
+desc = "Abre o telescope no diretorio de configuração do nvim"})
+
+vim.keymap.set("n", "<leader>fr", require("telescope.builtin").registers, {
+  desc = "Abre a lista de registros"
+})
+
+vim.keymap.set("n", "<leader>fd", require("telescope.builtin").diagnostics, {
+  desc = "Abre a lista de erros"
+})
+
+vim.keymap.set("n", "<leader>fk", require("telescope.builtin").keymaps, {
+  desc = "Abre a lista de atalhos "
 })
