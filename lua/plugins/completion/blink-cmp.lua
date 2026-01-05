@@ -23,13 +23,47 @@ return {
         nerd_font_variant = 'mono',
       },
 
+      -- Mermão mo trampo mexer aqui em...
       completion = {
         menu = {
-          auto_show = false
+          auto_show = false,
+          min_width = 10,
+          winblend = 15,
+          window = {
+            offset = {
+              x = -10,
+              y = 0,
+            },
+          },
+
+          draw = {
+            components = {
+              label = {
+                width = { fill = false, max = 15 }
+              }
+            },
+            columns = {
+              { 'kind_icon' },
+              { 'label' }
+            },
+          },
         },
 
         documentation = {
-          auto_show = true
+          auto_show = true,
+
+          window = {
+            winblend = 20,
+            desired_min_width = 30,
+            min_width = 10,
+            max_width = 40,
+            max_height = 80,
+
+            direction_priority = {
+              menu_north = { 'e', 'w', 'n', 's' },
+              menu_south = { 'e', 'w', 's', 'n' },
+            },
+          }
         },
 
         ghost_text = {
