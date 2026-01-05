@@ -3,12 +3,14 @@ return {
     "polirritmico/monokai-nightasty.nvim",
     lazy = false,
     priority = 1000,
-    config = function()
-      vim.o.background = "dark"
+    init = function()
+      vim.opt.background = "dark"
       vim.g.gruvbox_contrast_dark = "hard"
       vim.g.gruvbox_enable_italic = true
       vim.cmd.colorscheme("monokai-nightasty")
+    end,
 
+    config = function()
       vim.cmd("highlight Normal guibg=#000000")
       vim.cmd("highlight NormalNC guibg=#020202")
       vim.cmd("highlight @property guifg=#e14832")
@@ -19,6 +21,6 @@ return {
       -- vim.cmd("highlight @function guifg=#b967ff")
       -- vim.cmd("highlight @function.method guifg=#05ffa1")
       -- vim.cmd("highlight @variable.builtin guifg=#01cdfe")
-  end
-  }
+    end,
+  },
 }

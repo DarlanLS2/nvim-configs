@@ -118,6 +118,10 @@ function Keymaps.normal()
     silent = true,
     desc = "Substituir palavra sob cursor"
   })
+  vim.keymap.set("n", "<leader>h", ":nohlsearch<CR>", {
+    silent = true,
+    desc = "Limpa highlight da busca"
+  })
 end
 
 function Keymaps.visual()
