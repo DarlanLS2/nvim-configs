@@ -1,3 +1,4 @@
+-- Este plugin é o que faz aparecer uma linha indicando a indentação
 return {
   {
   "echasnovski/mini.indentscope",

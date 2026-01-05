@@ -1,3 +1,4 @@
+-- Este plugin é o que faz aparecer um highligh das cores, exemplo #d3d
 return {
   'norcalli/nvim-colorizer.lua',
   config = function()

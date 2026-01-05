@@ -1,3 +1,5 @@
+-- Este plugin oferece um ui para buscas coisas, como arquivos, diagnosticos,
+-- registros, ETC.
 return {
   {
     'nvim-telescope/telescope.nvim', tag = '0.1.8',

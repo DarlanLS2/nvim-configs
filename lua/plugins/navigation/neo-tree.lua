@@ -1,3 +1,4 @@
+-- Este plugin é a barra de arquivos lateral
 return {
   {
     "nvim-neo-tree/neo-tree.nvim",

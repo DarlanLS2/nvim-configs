@@ -1,3 +1,4 @@
+-- Este plugin é o que faz aparecer um highlight nos comentarios TODO
 return {
   {
     "folke/todo-comments.nvim",

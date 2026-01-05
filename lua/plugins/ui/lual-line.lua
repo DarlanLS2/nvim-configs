@@ -1,3 +1,5 @@
+-- Este plugin é o que faz aparecer esta barra com varias informações na parte 
+-- de baixo
 return {
   'nvim-lualine/lualine.nvim',
   dependencies = { 'nvim-tree/nvim-web-devicons' },

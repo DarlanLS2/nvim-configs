@@ -1,3 +1,5 @@
+-- Esta plugin é o responsavel pelo autocomplete, ele oferece uma ui com opções
+-- de autocomplete. Ele usa os LSPs
 return {
   {
     'saghen/blink.cmp',

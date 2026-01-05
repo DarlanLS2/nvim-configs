@@ -1,3 +1,4 @@
+-- O mason é responsavel por intalar e gerenciar os LSPs
 return {
   {
     "williamboman/mason.nvim",

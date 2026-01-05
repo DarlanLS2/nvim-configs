@@ -1,3 +1,5 @@
+-- Este plugin faz o editor reconhecer a estrutura do codigo de maneira melhor,
+-- assim ajudando a identificação de cada coisa dentro do codigo
 return {
   'nvim-treesitter/nvim-treesitter',
   build = ':TSUpdate',
