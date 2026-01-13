@@ -31,10 +31,16 @@ function Keymaps.normal()
     desc = "Ir para o inicio da linha"
   })
 
-  vim.keymap.set("n", "w", "b", {
+  vim.keymap.set("n", "n", "b", {
     noremap = true,
     silent = true,
     desc = "Mover para o inicio da palavra anterior"
+  })
+
+  vim.keymap.set("n", "m", "e", {
+    noremap = true,
+    silent = true,
+    desc = "Mover para o fim da proxima palavra"
   })
 
   vim.keymap.set("n", "<leader>y", '"+y', {
@@ -71,6 +77,12 @@ function Keymaps.normal()
     noremap = true,
     silent = true,
     desc = "Deleta do caractere atual até o inicio da linha"
+  })
+
+  vim.keymap.set("n", "x", 'X', {
+    noremap = true,
+    silent = true,
+    desc = "Deleta um caractere para trás"
   })
 
   vim.keymap.set("n", "<C-a>", 'ggVG', {
