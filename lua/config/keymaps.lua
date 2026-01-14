@@ -4,121 +4,121 @@ function Keymaps.normal()
   vim.keymap.set("n", "j", "h", {
     noremap = true,
     silent = true,
-    desc = "Mover para a esquerda (normal)"
+    desc = "Mover cursor para direita"
   })
 
   vim.keymap.set("n", "l", "j", {
     noremap = true,
     silent = true,
-    desc = "Mover para baixo (normal)"
+    desc = "Mover cursor para baixo"
   })
 
   vim.keymap.set("n", "ç", "l", {
     noremap = true,
     silent = true,
-    desc = "Mover para a direita (normal)"
+    desc = "Mover cursor para direita"
   })
 
   vim.keymap.set("n", "Ç", "$", {
     noremap = true,
     silent = true,
-    desc = "Ir para o fim da linha (Ç)"
+    desc = "Mover cursor para o fim da linha"
   })
 
   vim.keymap.set("n", "J", "^", {
     noremap = true,
     silent = true,
-    desc = "Ir para o inicio da linha"
+    desc = "Mover cursor para o inicio da linha"
   })
 
   vim.keymap.set("n", "n", "b", {
     noremap = true,
     silent = true,
-    desc = "Mover para o inicio da palavra anterior"
+    desc = "Mover cursor para o inicio da palavra anterior"
   })
 
   vim.keymap.set("n", "m", "e", {
     noremap = true,
     silent = true,
-    desc = "Mover para o fim da proxima palavra"
+    desc = "Mover cursor para o fim da proxima palavra"
   })
 
   vim.keymap.set("n", "<leader>y", '"+y', {
     noremap = true,
     silent = true,
-    desc = "Copia para area de transferencia"
+    desc = "Copiar para area de transferencia(Ctrl+c)"
   })
 
   vim.keymap.set("n", "<leader>p", '"+p', {
     noremap = true,
     silent = true,
-    desc = "Cola a ultima coisa da area de tranferencia"
+    desc = "Colar texto da area de tranferencia(Ctrl+v)"
   })
 
   vim.keymap.set("n", "2o", "o<Esc>o", {
     noremap = true,
     silent = true,
-    desc = "Pula para baixo 2 linhas e entre no modo inserção"
+    desc = "Pular duas linhas para baixo e entrar no modo de inserção"
   })
 
   vim.keymap.set("n", "2O", "O<Esc>O", {
     noremap = true,
     silent = true,
-    desc = "Pula para cima 2 linhas e entre no modo inserção"
+    desc = "Pular duas linhas para cima e entrar no modo inserção"
   })
 
   vim.keymap.set("n", "dç", 'd$', {
     noremap = true,
     silent = true,
-    desc = "Deleta do caractere atual até o fim da linha"
+    desc = "Apagar do caractere sob o cursor até o fim da linha"
   })
 
   vim.keymap.set("n", "dj", 'd0', {
     noremap = true,
     silent = true,
-    desc = "Deleta do caractere atual até o inicio da linha"
+    desc = "Apagar do caractere sob o cursor até o inicio da linha"
   })
 
   vim.keymap.set("n", "x", 'X', {
     noremap = true,
     silent = true,
-    desc = "Deleta um caractere para trás"
+    desc = "Apagar caractere anterior"
   })
 
   vim.keymap.set("n", "<C-a>", 'ggVG', {
     noremap = true,
     silent = true,
-    desc = "Seleciona tudo"
+    desc = "Selecionar tudo"
   })
 
   vim.keymap.set("n", "dl", '(V)d', {
     noremap = true,
     silent = true,
-    desc = "Deleta bloco de codigo atual"
+    desc = "Apagar o bloco de codigo sob o cursor"
   })
 
   vim.keymap.set("n", "cc", 'yyp', {
     noremap = true,
     silent = true,
-    desc = "Duplica linha"
+    desc = "Duplicar a linha sob o cursor"
   })
 
   vim.keymap.set("n", "<leader>a", '==', {
     noremap = true,
     silent = true,
-    desc = "Arruma automaticamente a indentação da linha"
+    desc = "Arrumar a indentação da linha sob o cursor"
   })
 
   vim.keymap.set("n", "<C-k>", "{", {
     noremap = true,
     silent = true,
-    desc = "Pula para o início do bloco"
+    desc = "Mover para o início do bloco"
   })
 
   vim.keymap.set("n", "<C-l>", "}", {
     noremap = true,
     silent = true,
-    desc = "Pula para o fim do bloco"
+    desc = "Mover para o fim do bloco"
   })
 
   vim.keymap.set("n", "<leader>sw", function()
@@ -130,9 +130,10 @@ function Keymaps.normal()
     silent = true,
     desc = "Substituir palavra sob cursor"
   })
+
   vim.keymap.set("n", "<leader>h", ":nohlsearch<CR>", {
     silent = true,
-    desc = "Limpa highlight da busca"
+    desc = "Limpar highlight de busca"
   })
 end
 
@@ -141,67 +142,67 @@ function Keymaps.visual()
   vim.keymap.set("v", "j", "h", {
     noremap = true,
     silent = true,
-    desc = "Mover para a esquerda (visual)"
+    desc = "Mover cursor para a esquerda"
   })
 
   vim.keymap.set("v", "l", "j", {
     noremap = true,
     silent = true,
-    desc = "Mover para baixo (visual)"
+    desc = "Mover cursor para baixo"
   })
 
   vim.keymap.set("v", "ç", "l", {
     noremap = true,
     silent = true,
-    desc = "Mover para a direita (visual)"
+    desc = "Mover cursor para a direita"
   })
 
   vim.keymap.set("v", "Ç", "$", {
     noremap = true,
     silent = true,
-    desc = "Ir para o fim da linha (Ç)"
+    desc = "Mover cursor para o fim da linha"
   })
 
   vim.keymap.set("v", "J", "^", {
     noremap = true,
     silent = true,
-    desc = "Ir para o inicio da linha"
+    desc = "Mover cursor para o inicio da linha"
   })
 
   vim.keymap.set("v", "w", "b", {
     noremap = true,
     silent = true,
-    desc = "Mover para o inicio da palavra anterior"
+    desc = "Mover cursor para o inicio da palavra anterior"
   })
 
   vim.keymap.set("v", "<leader>y", '"+y', {
     noremap = true,
     silent = true,
-    desc = "Copia para area de transferencia"
+    desc = "Copiar para area de transferencia(Ctrl+c)"
   })
 
   vim.keymap.set("v", "<leader>p", '"+p', {
     noremap = true,
     silent = true,
-    desc = "Cola a ultima coisa da area de tranferencia"
+    desc = "Colar texto da area de tranferencia(Ctrl+v)"
   })
 
   vim.keymap.set("v", "cc", 'yP', {
     noremap = true,
     silent = true,
-    desc = "Duplica a seleção"
+    desc = "Duplicar o texto selecionado"
   })
 
   vim.keymap.set("v", "<leader>a", '==', {
     noremap = true,
     silent = true,
-    desc = "Arruma a indentação da seleção"
+    desc = "Arrumar a indentação do texto selecionado"
   })
 
   vim.keymap.set("v", ";;", 'gcc', {
     noremap = true,
     silent = true,
-    desc = "Comenta a seleção"
+    desc = "Comentar o texto selecionado"
   })
 end
 
@@ -209,7 +210,7 @@ function Keymaps.insert()
   vim.keymap.set("i", "<C-j>", "<C-w>", {
     noremap = true,
     silent = true,
-    desc = "Apaga palavra anterior ao cursor"
+    desc = "Apagar palavra anterior"
   })
 end
 
@@ -225,31 +226,36 @@ Keymaps.setup()
 vim.keymap.set("n", "<leader><Tab>", "<C-w>w", {
   noremap = true,
   silent = true,
-  desc = "Move entre as janelas em sentido horario"
+  desc = "Mover entre as janelas em sentido horario"
 })
 
 -- neotree keymap
 vim.keymap.del("n", "<C-n>")
-
 vim.keymap.set("n", "<leader>n", "<cmd>Neotree toggle<CR>", {
-  desc = "Toggle Neo-tree"
+  desc = "Abrir Neo-tree(barra lateral de arquivos)"
 })
 
 ------------------------- LSP -------------------------
-vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, {desc = "Mostrar diagnostic flutuante"})
+vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, {
+  desc = "Mostrar menu de diagnostico"
+})
 
-vim.keymap.set('n', '<leader>ch', vim.lsp.buf.hover, {desc = "Mostra documentação do codigo que esta em cima"})
+vim.keymap.set('n', '<leader>ch', vim.lsp.buf.hover, {
+  desc = "Mostrar documentação do codigo sob o cursor"
+})
 
-vim.keymap.set('n', '<leader>cd', vim.lsp.buf.definition, {desc = "Mostra documentação do codigo que esta em cima"})
+vim.keymap.set('n', '<leader>cd', vim.lsp.buf.definition, {
+  desc = "Mostrar documentação do codigo sob o cursor"
+})
 
 
 ---------------------  TELESCOPE ----------------------
 vim.keymap.set("n", "<leader>ft", "<cmd>TodoTelescope<CR>", {
-  desc = "Abrir TODOs com Telescope"
+  desc = "Abrir menu de busca de TODOs"
 })
 
 vim.keymap.set("n", "<leader>ff", require("telescope.builtin").find_files, {
-  desc = "Procura por arquivos"
+  desc = "Abrir menu de busca de arquivos"
 })
 
 vim.keymap.set("n", "<leader>fn", function()
@@ -257,16 +263,16 @@ vim.keymap.set("n", "<leader>fn", function()
     cwd = vim.fn.stdpath("config")
   }
 end, {
-desc = "Abre o telescope no diretorio de configuração do nvim"})
+desc = "Abrir menu de busca no diretorio de configuração do Nvim"})
 
 vim.keymap.set("n", "<leader>fr", require("telescope.builtin").registers, {
-  desc = "Abre a lista de registros"
+  desc = "Abrir menu de busca de registros"
 })
 
 vim.keymap.set("n", "<leader>fd", require("telescope.builtin").diagnostics, {
-  desc = "Abre a lista de erros"
+  desc = "Abrir menu de busca de erros"
 })
 
 vim.keymap.set("n", "<leader>fk", require("telescope.builtin").keymaps, {
-  desc = "Abre a lista de atalhos "
+  desc = "Abrir menu de busca de atalhos "
 })
