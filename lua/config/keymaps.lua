@@ -250,7 +250,6 @@ function Keymaps.telescope()
 end
 
 function Keymaps.neoTree()
-  vim.keymap.del("n", "<C-n>")
   vim.keymap.set("n", "<leader>n", "<cmd>Neotree toggle<CR>", {
     desc = "Abrir Neo-tree(barra lateral de arquivos)"
   })
