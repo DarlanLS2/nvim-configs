@@ -43,6 +43,24 @@ function Keymaps.normal()
     desc = "Mover cursor para o fim da proxima palavra"
   })
 
+  vim.keymap.set("n", "<leader><Tab>", "<C-w>w", {
+    noremap = true,
+    silent = true,
+    desc = "Mover entre as janelas em sentido horario"
+  })
+
+  vim.keymap.set("n", "<C-k>", "{", {
+    noremap = true,
+    silent = true,
+    desc = "Mover para o início do bloco"
+  })
+
+  vim.keymap.set("n", "<C-l>", "}", {
+    noremap = true,
+    silent = true,
+    desc = "Mover para o fim do bloco"
+  })
+
   vim.keymap.set("n", "<leader>y", '"+y', {
     noremap = true,
     silent = true,
@@ -107,18 +125,6 @@ function Keymaps.normal()
     noremap = true,
     silent = true,
     desc = "Arrumar a indentação da linha sob o cursor"
-  })
-
-  vim.keymap.set("n", "<C-k>", "{", {
-    noremap = true,
-    silent = true,
-    desc = "Mover para o início do bloco"
-  })
-
-  vim.keymap.set("n", "<C-l>", "}", {
-    noremap = true,
-    silent = true,
-    desc = "Mover para o fim do bloco"
   })
 
   vim.keymap.set("n", "<leader>sw", function()
@@ -214,65 +220,63 @@ function Keymaps.insert()
   })
 end
 
+function Keymaps.telescope()
+  vim.keymap.set("n", "<leader>ft", "<cmd>TodoTelescope<CR>", {
+    desc = "Abrir menu de busca de TODOs"
+  })
+
+  vim.keymap.set("n", "<leader>ff", require("telescope.builtin").find_files, {
+    desc = "Abrir menu de busca de arquivos"
+  })
+
+  vim.keymap.set("n", "<leader>fr", require("telescope.builtin").registers, {
+    desc = "Abrir menu de busca de registros"
+  })
+
+  vim.keymap.set("n", "<leader>fd", require("telescope.builtin").diagnostics, {
+    desc = "Abrir menu de busca de erros"
+  })
+
+  vim.keymap.set("n", "<leader>fk", require("telescope.builtin").keymaps, {
+    desc = "Abrir menu de busca de atalhos "
+  })
+
+  vim.keymap.set("n", "<leader>fn", function()
+    require("telescope.builtin").find_files {
+      cwd = vim.fn.stdpath("config")
+    }
+  end, {
+  desc = "Abrir menu de busca no diretorio de configuração do Nvim"})
+end
+
+function Keymaps.neoTree()
+  vim.keymap.del("n", "<C-n>")
+  vim.keymap.set("n", "<leader>n", "<cmd>Neotree toggle<CR>", {
+    desc = "Abrir Neo-tree(barra lateral de arquivos)"
+  })
+end
+
+function Keymaps.lsp()
+  vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, {
+    desc = "Mostrar menu de diagnostico"
+  })
+
+  vim.keymap.set('n', '<leader>ch', vim.lsp.buf.hover, {
+    desc = "Mostrar documentação do codigo sob o cursor"
+  })
+
+  vim.keymap.set('n', '<leader>cd', vim.lsp.buf.definition, {
+    desc = "Mostrar documentação do codigo sob o cursor"
+  })
+end
+
 function Keymaps.setup()
   Keymaps.normal()
   Keymaps.visual()
   Keymaps.insert()
+  Keymaps.telescope()
+  Keymaps.neoTree()
+  Keymaps.lsp()
 end
 
 Keymaps.setup()
-
--- Navegação entre janelas no modo normal
-vim.keymap.set("n", "<leader><Tab>", "<C-w>w", {
-  noremap = true,
-  silent = true,
-  desc = "Mover entre as janelas em sentido horario"
-})
-
--- neotree keymap
-vim.keymap.del("n", "<C-n>")
-vim.keymap.set("n", "<leader>n", "<cmd>Neotree toggle<CR>", {
-  desc = "Abrir Neo-tree(barra lateral de arquivos)"
-})
-
-------------------------- LSP -------------------------
-vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, {
-  desc = "Mostrar menu de diagnostico"
-})
-
-vim.keymap.set('n', '<leader>ch', vim.lsp.buf.hover, {
-  desc = "Mostrar documentação do codigo sob o cursor"
-})
-
-vim.keymap.set('n', '<leader>cd', vim.lsp.buf.definition, {
-  desc = "Mostrar documentação do codigo sob o cursor"
-})
-
-
----------------------  TELESCOPE ----------------------
-vim.keymap.set("n", "<leader>ft", "<cmd>TodoTelescope<CR>", {
-  desc = "Abrir menu de busca de TODOs"
-})
-
-vim.keymap.set("n", "<leader>ff", require("telescope.builtin").find_files, {
-  desc = "Abrir menu de busca de arquivos"
-})
-
-vim.keymap.set("n", "<leader>fn", function()
-  require("telescope.builtin").find_files {
-    cwd = vim.fn.stdpath("config")
-  }
-end, {
-desc = "Abrir menu de busca no diretorio de configuração do Nvim"})
-
-vim.keymap.set("n", "<leader>fr", require("telescope.builtin").registers, {
-  desc = "Abrir menu de busca de registros"
-})
-
-vim.keymap.set("n", "<leader>fd", require("telescope.builtin").diagnostics, {
-  desc = "Abrir menu de busca de erros"
-})
-
-vim.keymap.set("n", "<leader>fk", require("telescope.builtin").keymaps, {
-  desc = "Abrir menu de busca de atalhos "
-})
