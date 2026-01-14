@@ -44,3 +44,10 @@ vim.api.nvim_create_autocmd({ "FileType", "BufWinEnter" }, {
     end)
   end,
 })
+
+vim.opt.guicursor = {
+  "n-v-c:block",
+  "i-ci-ve:ver25",
+  "r-cr:hor20",
+  "o:hor50",
+}
