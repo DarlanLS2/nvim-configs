@@ -10,6 +10,11 @@ return {
     },
     lazy = false,
     opts = {
+      default_component_configs = {
+        indent = {
+          padding = 0,
+        }
+      },
       window = {
         width = 25,
         mappings = {

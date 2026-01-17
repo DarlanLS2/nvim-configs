@@ -29,12 +29,6 @@ return {
           auto_show = false,
           min_width = 10,
           winblend = 15,
-          window = {
-            offset = {
-              x = -10,
-              y = 0,
-            },
-          },
 
           draw = {
             components = {
