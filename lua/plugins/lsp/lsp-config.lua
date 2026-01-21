@@ -18,7 +18,9 @@ return {
           "cssls",
           "phpactor",
           "jdtls",
-          "bashls"
+          "bashls",
+          "docker_language_server",
+          "docker_compose_language_service"
         },
       })
     end,
