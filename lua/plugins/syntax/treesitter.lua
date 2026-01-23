@@ -5,22 +5,31 @@ return {
   build = ':TSUpdate',
   event = { "BufReadPost", "BufNewFile" },
   config = function()
-    require('nvim-treesitter.configs').setup {
-
-      -- Linguagens que você quer que instale automaticamente
+    --require('nvim-treesitter.configs').setup {
+    require('nvim-treesitter').setup {
       ensure_installed = {
         "lua",
+        "luadoc",
         "python",
         "javascript",
+        "json",
         "bash",
         "html",
         "css",
-        "java"
+        "java",
+        "comment",
+        "dockerfile",
+        "gitignore",
+        "markdown",
+        "markdown_inline",
+        "powershell",
+        "vim",
+        "vimdoc",
+        "regex",
+        "sql"
       },
 
-      -- Instala os parsers automaticamente ao abrir arquivo
       auto_install = true,
-
       highlight = {
         enable = true,        -- ativa o realce de sintaxe
         additional_vim_regex_highlighting = false,

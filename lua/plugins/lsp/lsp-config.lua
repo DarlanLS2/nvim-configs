@@ -13,6 +13,7 @@ return {
       require("mason-lspconfig").setup({
         ensure_installed = {
           "lua_ls",
+          "pylsp",
           "ts_ls",
           "html",
           "cssls",
@@ -20,7 +21,10 @@ return {
           "jdtls",
           "bashls",
           "docker_language_server",
-          "docker_compose_language_service"
+          "docker_compose_language_service",
+          "dockerls",
+          "vim",
+          "sqlls"
         },
       })
     end,
