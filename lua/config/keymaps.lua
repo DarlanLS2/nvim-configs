@@ -225,6 +225,10 @@ function Keymaps.telescope()
     desc = "Abrir menu de busca de TODOs"
   })
 
+  vim.keymap.set("n", "<leader>fg", require("telescope.builtin").live_grep, {
+    desc = "Abrir menu de busca de padrões(palavras)"
+  })
+
   vim.keymap.set("n", "<leader>ff", require("telescope.builtin").find_files, {
     desc = "Abrir menu de busca de arquivos"
   })
