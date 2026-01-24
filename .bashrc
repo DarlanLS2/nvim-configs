@@ -157,26 +157,60 @@ if [ -d /etc/profile.d ]; then
   unset i
 fi
 
+#==============================================================================
+# Configs
+#==============================================================================
 
 # zoxide
 eval "$(zoxide init bash)"
 
+# PATH
+PATH="$PATH:~/scripts"
+PATH="$PATH:$HOME/bin/Postman"
+
+# Variaveis
+d="$HOME/Desktop"
+
 # Geral
 alias cl='clear'
-alias cdd='cd ~/Desktop'
+alias cdn='cd ~/.config/nvim/'
 alias mycommands='bat ~/mycommands.md'
-alias clip='xclip -selection clipboard'
-alias movenvim='cp -r ~/.config/nvim/lua ~/Desktop/nvim-config'
+alias copy='xclip -selection clipboard'
+alias ssdn='sudo shutdown now'
+alias ssdrn='sudo shutdown -r now'
+alias rs='. ~/.bashrc'
 
 # Git
 alias gs='git status'
 alias ga='git add .'
+gaf() {
+  git add "$(git status --short | rg "^ [A-Z]" | awk '{print $2}' | fzf)"
+}
+grf() {
+  git restore -S "$(git status --short | rg "^[A-Z] " | awk '{print $2}' | fzf)"
+}
 alias gl='git log --oneline --graph'
 alias gc='git checkout $(git branch | fzf)'
 alias gcm='git commit'
+alias gacm='git add .;git commit'
+alias gb='git branch'
 
 # Externos
 alias zlj='zellij'
 alias usage='tldr'
 alias bat='batcat'
-#PATH="$PATH:$HOME/bin/Postman"
+alias cdf='cd $(zoxide query -l | fzf)'
+
+# Docker 
+alias di='docker image'
+alias dc='docker container'
+alias dr='docker run'
+dirf() {
+  docker image rm "$(docker image ls -a --format table | sed '1d' | fzf | awk '{print $3}')"
+}
+db() {
+  docker build -t "$1" .
+}
+drf() {
+  docker run -it "$(docker image ls -a --format table | sed'1d' | fzf | awk '{print $3}')" bash
+}
