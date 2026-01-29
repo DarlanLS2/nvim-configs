@@ -5,5 +5,6 @@ return {
   require("plugins.ui.flash"),
   require("plugins.ui.todoComments"),
   require("plugins.ui.which-key"),
-  require("plugins.ui.noice")
+  require("plugins.ui.noice"),
+  require("plugins.ui.notify")
 }
