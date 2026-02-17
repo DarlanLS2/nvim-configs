@@ -23,7 +23,7 @@ return {
           "docker_language_server",
           "docker_compose_language_service",
           "dockerls",
-          "vim",
+          "vimls",
           "sqlls"
         },
       })
@@ -41,7 +41,18 @@ return {
     "neovim/nvim-lspconfig",
     config = function()
       -- 🔹 configurações (NOVA API)
-      vim.lsp.config.lua_ls = {}
+      vim.lsp.config.lua_ls = {
+        settings = {
+          Lua = {
+            diagnostics = {
+              globals = { 'vim' },
+            },
+            workspace = {
+              library = vim.api.nvim_get_runtime_file("", true),
+            },
+          },
+        },
+      }
       vim.lsp.config.tsserver = {}
       vim.lsp.config.html = {}
       vim.lsp.config.cssls = {}
@@ -51,11 +62,18 @@ return {
       -- 🔹 ativação explícita
       vim.lsp.enable({
         "lua_ls",
-        "tsserver",
+        "pylsp",
+        "ts_ls",
         "html",
         "cssls",
         "phpactor",
         "jdtls",
+        "bashls",
+        "docker_language_server",
+        "docker_compose_language_service",
+        "dockerls",
+        "vimls",
+        "sqlls"
       })
     end,
   },
