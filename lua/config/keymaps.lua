@@ -264,12 +264,16 @@ function Keymaps.lsp()
     desc = "Mostrar menu de diagnostico"
   })
 
-  vim.keymap.set('n', '<leader>ch', vim.lsp.buf.hover, {
+  vim.keymap.set('n', '<leader>r', vim.lsp.buf.hover, {
     desc = "Mostrar documentação do codigo sob o cursor"
   })
 
-  vim.keymap.set('n', '<leader>cd', vim.lsp.buf.definition, {
-    desc = "Mostrar documentação do codigo sob o cursor"
+  vim.keymap.set('n', '<leader>gd', vim.lsp.buf.definition, {
+    desc = "Vai até a definição da que esta embaixo do cursor"
+  })
+
+  vim.keymap.set('n', '<leader>gr', vim.lsp.buf.document_symbol, {
+    desc = "Vai até a definição da que esta embaixo do cursor"
   })
 end
 
