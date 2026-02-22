@@ -34,7 +34,7 @@ function Keymaps.normal()
   vim.keymap.set("n", "n", "b", {
     noremap = true,
     silent = true,
-    desc = "Mover cursor para o inicio da palavra anterior"
+    desc = "Mover cursor para o inicio da palavra anterio"
   })
 
   vim.keymap.set("n", "m", "e", {
