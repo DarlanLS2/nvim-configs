@@ -249,6 +249,10 @@ function Keymaps.telescope()
     desc = "Abrir menu de busca de atalhos "
   })
 
+  vim.keymap.set("n", "<leader>fs", require("telescope.builtin").lsp_document_symbols, {
+    desc = "Abrir menu de busca de symbols"
+  })
+
   vim.keymap.set("n", "<leader>fn", function()
     require("telescope.builtin").find_files {
       cwd = vim.fn.stdpath("config")
