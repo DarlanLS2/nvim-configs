@@ -31,13 +31,13 @@ function Keymaps.normal()
     desc = "Mover cursor para o inicio da linha"
   })
 
-  vim.keymap.set("n", "n", "b", {
+  vim.keymap.set("n", "<C-j>", "b", {
     noremap = true,
     silent = true,
     desc = "Mover cursor para o inicio da palavra anterio"
   })
 
-  vim.keymap.set("n", "m", "e", {
+  vim.keymap.set("n", "<C-ç>", "e", {
     noremap = true,
     silent = true,
     desc = "Mover cursor para o fim da proxima palavra"
@@ -49,13 +49,13 @@ function Keymaps.normal()
     desc = "Mover entre as janelas em sentido horario"
   })
 
-  vim.keymap.set("n", "<C-k>", "{", {
+  vim.keymap.set("n", "K", "{", {
     noremap = true,
     silent = true,
     desc = "Mover para o início do bloco"
   })
 
-  vim.keymap.set("n", "<C-l>", "}", {
+  vim.keymap.set("n", "L", "}", {
     noremap = true,
     silent = true,
     desc = "Mover para o fim do bloco"
@@ -226,6 +226,10 @@ function Keymaps.telescope()
   })
 
   vim.keymap.set("n", "<leader>fg", require("telescope.builtin").live_grep, {
+    desc = "Abrir menu de busca de padrões(palavras)"
+  })
+
+  vim.keymap.set("n", "<leader>fg", require("telescope.builtin").lsp_type_definitions, {
     desc = "Abrir menu de busca de padrões(palavras)"
   })
 
