@@ -112,25 +112,25 @@ function Keymaps.normal()
   vim.keymap.set("n", "dl", '(V)d', {
     noremap = true,
     silent = true,
-    desc = "Apagar o bloco de codigo sob o cursor"
+    desc = "Apagar bloco de codigo sob o cursor"
   })
 
   vim.keymap.set("n", "cc", 'yyp', {
     noremap = true,
     silent = true,
-    desc = "Duplicar a linha sob o cursor"
+    desc = "Duplicar linha sob o cursor"
   })
 
   vim.keymap.set("n", "<leader>al", '==', {
     noremap = true,
     silent = true,
-    desc = "Arrumar a indentação da linha sob o cursor"
+    desc = "Arrumar indentação da linha sob o cursor"
   })
 
   vim.keymap.set("n", "<leader>ak", '=ap', {
     noremap = true,
     silent = true,
-    desc = "Arrumar a indentação do paragrafo sob o cursor"
+    desc = "Arrumar indentação do paragrafo sob o cursor"
   })
 
   vim.keymap.set("n", "<leader>sw", function()
@@ -150,7 +150,7 @@ function Keymaps.normal()
 
   vim.keymap.set("n", "<leader><leader>", "o<Esc>k", {
     silent = true,
-    desc = "Cria uma linha em baixo do cursor"
+    desc = "Criar linha abaixo do cursor"
   })
 end
 
@@ -227,8 +227,9 @@ function Keymaps.insert()
   vim.keymap.set("i", "<C-j>", "<BS>", {
     noremap = true,
     silent = true,
-    desc = "Apagar letra anterior anterior"
+    desc = "Apagar letra anterior"
   })
+
   vim.keymap.set("i", "<C-k>", "<C-w>", {
     noremap = true,
     silent = true,
@@ -293,11 +294,11 @@ function Keymaps.lsp()
   })
 
   vim.keymap.set('n', '<leader>gd', vim.lsp.buf.definition, {
-    desc = "Vai até a definição da que esta embaixo do cursor"
+    desc = "Ir até a definição da que esta embaixo do cursor"
   })
 
   vim.keymap.set('n', '<leader>gr', vim.lsp.buf.document_symbol, {
-    desc = "Vai até a definição da que esta embaixo do cursor"
+    desc = "Ir até a definição da que esta embaixo do cursor"
   })
 end
 
