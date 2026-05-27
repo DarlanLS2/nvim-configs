@@ -121,10 +121,16 @@ function Keymaps.normal()
     desc = "Duplicar a linha sob o cursor"
   })
 
-  vim.keymap.set("n", "<leader>a", '==', {
+  vim.keymap.set("n", "<leader>al", '==', {
     noremap = true,
     silent = true,
     desc = "Arrumar a indentação da linha sob o cursor"
+  })
+
+  vim.keymap.set("n", "<leader>ak", '=ap', {
+    noremap = true,
+    silent = true,
+    desc = "Arrumar a indentação do paragrafo sob o cursor"
   })
 
   vim.keymap.set("n", "<leader>sw", function()
@@ -140,6 +146,11 @@ function Keymaps.normal()
   vim.keymap.set("n", "<leader>h", ":nohlsearch<CR>", {
     silent = true,
     desc = "Limpar highlight de busca"
+  })
+
+  vim.keymap.set("n", "<leader><leader>", "o<Esc>k", {
+    silent = true,
+    desc = "Cria uma linha em baixo do cursor"
   })
 end
 
@@ -213,7 +224,12 @@ function Keymaps.visual()
 end
 
 function Keymaps.insert()
-  vim.keymap.set("i", "<C-j>", "<C-w>", {
+  vim.keymap.set("i", "<C-j>", "<BS>", {
+    noremap = true,
+    silent = true,
+    desc = "Apagar letra anterior anterior"
+  })
+  vim.keymap.set("i", "<C-k>", "<C-w>", {
     noremap = true,
     silent = true,
     desc = "Apagar palavra anterior"
