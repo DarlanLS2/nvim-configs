@@ -1,4 +1,8 @@
 -- O mason é responsavel por intalar e gerenciar os LSPs
+
+-- Para adicionar uma nova linguagem siga os passos abaixo:
+-- Obs: Para verificar as lingagens disponiveis rode "Mason"
+-- Obs: Depois de fazer os passos de um "MasonInstall <linguagem>"
 return {
   {
     "williamboman/mason.nvim",
@@ -11,6 +15,9 @@ return {
     "williamboman/mason-lspconfig.nvim",
     config = function()
       require("mason-lspconfig").setup({
+      ---------------------------------
+      -- 1. Adicione a linguagem aqui 
+      ---------------------------------
         ensure_installed = {
           "lua_ls",
           "pylsp",
@@ -24,7 +31,8 @@ return {
           "docker_compose_language_service",
           "dockerls",
           "vimls",
-          "sqlls"
+          "sqlls",
+          "clangd"
         },
       })
     end,
@@ -53,13 +61,19 @@ return {
           },
         },
       }
+      ---------------------------------
+      -- 2. Adicione a linguagem aqui 
+      ---------------------------------
       vim.lsp.config.tsserver = {}
       vim.lsp.config.html = {}
       vim.lsp.config.cssls = {}
       vim.lsp.config.phpactor = {}
       vim.lsp.config.jdtls = {}
+      vim.lsp.config.clangd = {}
 
-      -- 🔹 ativação explícita
+      ---------------------------------
+      -- 3. Adicione a linguagem aqui 
+      ---------------------------------
       vim.lsp.enable({
         "lua_ls",
         "pylsp",
@@ -73,7 +87,8 @@ return {
         "docker_compose_language_service",
         "dockerls",
         "vimls",
-        "sqlls"
+        "sqlls",
+        "clangd",
       })
     end,
   },
