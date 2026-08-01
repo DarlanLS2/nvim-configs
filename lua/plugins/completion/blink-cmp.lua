@@ -11,8 +11,28 @@ return {
     version = '1.*',
 
     opts = {
+      -- antigo
+      -- keymap = {
+      --   preset = 'enter',
+      --   ['<C-k>'] = { 'select_prev', 'fallback' },
+      --   ['<C-l>'] = { 'select_next', 'fallback' },
+      --   ['<C-o>'] = { 'show_documentation'},
+      --   ['<C-i>'] = { 'hide_documentation'},
+      -- },
+      --
       keymap = {
-        preset = 'enter',
+        preset = 'default',
+        ["<Tab>"] = {
+          function(cmp)
+            if cmp.snippet_active() then
+              return cmp.accept()
+            else
+              return cmp.select_and_accept()
+            end
+          end,
+          "snippet_forward",
+          "fallback",
+        },
         ['<C-k>'] = { 'select_prev', 'fallback' },
         ['<C-l>'] = { 'select_next', 'fallback' },
         ['<C-o>'] = { 'show_documentation'},
