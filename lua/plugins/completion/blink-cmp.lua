@@ -1,35 +1,42 @@
 -- Esta plugin é o responsavel pelo autocomplete, ele oferece uma ui com opções
--- de autocomplete. Ele usa os LSPs
+-- de autocomplete. Ele usa os LSPs.
+
 return {
   {
     'saghen/blink.cmp',
 
-    dependencies = {
-      'rafamadriz/friendly-snippets'
-    },
-
     version = '1.*',
 
+    dependencies = {
+      'L3MON4D3/LuaSnip',
+      'rafamadriz/friendly-snippets',
+    },
+
     opts = {
-      -- antigo
-      -- keymap = {
-      --   preset = 'enter',
-      --   ['<C-k>'] = { 'select_prev', 'fallback' },
-      --   ['<C-l>'] = { 'select_next', 'fallback' },
-      --   ['<C-o>'] = { 'show_documentation'},
-      --   ['<C-i>'] = { 'hide_documentation'},
-      -- },
-      --
+
+      -- Habilita o uso do luasnip
+      snippets = { preset = 'luasnip' },
+
+      -- Recursos que serão usados para a lista de autocomplete
+      sources = {
+        default = { 'lsp', 'path', 'snippets', 'buffer' },
+
+        -- Ordem de prioridade na lista de autocomplete
+        providers = {
+          snippets = {
+            score_offset = 100,
+          },
+
+          lsp = {
+            score_offset = 0,
+          },
+        },
+      },
+
       keymap = {
         preset = 'default',
         ["<Tab>"] = {
-          function(cmp)
-            if cmp.snippet_active() then
-              return cmp.accept()
-            else
-              return cmp.select_and_accept()
-            end
-          end,
+          "select_and_accept",
           "snippet_forward",
           "fallback",
         },
@@ -91,10 +98,6 @@ return {
 
       signature = {
         enabled = true
-      },
-
-      sources = {
-        default = { 'lsp', 'path', 'snippets', 'buffer' },
       },
 
       fuzzy = {
