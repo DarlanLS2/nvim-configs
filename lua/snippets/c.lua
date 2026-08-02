@@ -10,7 +10,7 @@ ls.add_snippets("c", {
   s("main", fmt([[
 #include <stdio.h>
 
-int  main({}) {{
+int main({}) {{
   {}
 }}
 ]], {i(1), i(0)})
