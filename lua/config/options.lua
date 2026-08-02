@@ -23,6 +23,7 @@ vim.cmd("filetype indent on")
 vim.cmd("set colorcolumn=80")
 vim.cmd("highlight ColorColumn guibg=#4B4B4B")
 
+
 vim.opt.number = true
 vim.opt.signcolumn = "yes"
 vim.opt.numberwidth = 7
@@ -43,6 +44,13 @@ vim.api.nvim_create_autocmd({ "FileType", "BufWinEnter" }, {
       vim.api.nvim_buf_set_option(args.buf, "statuscolumn", "")
     end)
   end,
+})
+
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = "*",
+    callback = function()
+        vim.opt_local.formatoptions:remove({ "o" })
+    end,
 })
 
 vim.opt.guicursor = {
