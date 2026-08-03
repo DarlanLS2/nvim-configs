@@ -1,0 +1,49 @@
+*macros.txt*    Minhas anotações sobre macros
+
+==============================================================================
+CONTENTS                                              *macros-contents*
+
+1. Conceitos....................................|macros-concepts|
+2. Gravando uma macro............................|macros-record|
+3. Executando...................................|macros-run|
+
+==============================================================================
+1. Conceitos                                         *macros-concepts*
+
+Uma macro é uma sequência de teclas gravada em um register.
+
+Toda macro é armazenada em um register nomeado (a-z).
+
+==============================================================================
+2. Gravando uma macro                               *macros-record*
+
+Iniciar gravação:
+
+    qa
+
+Grava tudo que for digitado no register 'a'.
+
+Parar gravação:
+
+    q
+
+Acrescentar comandos a uma macro existente:
+
+    qA
+
+'A' (maiúsculo) abre o register em modo append.
+
+==============================================================================
+3. Executando                                       *macros-run*
+
+Executar uma vez:
+
+    @a
+
+Executar várias vezes:
+
+    10@a
+
+Repetir a última macro executada:
+
+    @@
