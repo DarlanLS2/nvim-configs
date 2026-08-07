@@ -17,6 +17,9 @@
 -- Mudando o surround caracter--------------------------------------------
 -- > cs"' | "example" -> 'example'
 -- > cs[{ | [example] -> {example}
+-- 
+-- Colocar surround na seleção do modo visual-----------------------------
+-- > S( | selected text -> (selected text)
 
 return {
   "kylechui/nvim-surround",
