@@ -8,4 +8,4 @@ Sinta-se à vontade para copiar minhas configurações ou usar qualquer parte de
 
 ## Preview
 
-https://github.com/user-attachments/assets/a0afc15d-f0e0-4537-a111-84afda32388b
+![](./assets/preview.jpg)
