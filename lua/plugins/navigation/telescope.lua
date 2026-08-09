@@ -47,8 +47,8 @@ return {
       -- Group bordas
       vim.api.nvim_set_hl(0, "TelescopeBorder", {
         bg = "#0A0A0A",
-        fg = "#a4e400",
-        -- fg = "#ff9700", -- Segunda opção de cor
+        fg = "#ff9700",
+        -- fg = "#a4e400", -- Segunda opção de cor
       })
     end
   }

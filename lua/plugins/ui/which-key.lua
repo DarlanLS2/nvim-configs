@@ -2,7 +2,7 @@ return {
   "folke/which-key.nvim",
   event = "VeryLazy",
   opts = {
-    preset = "modern",
+    preset = "helix",
     keys = {
       scroll_down = "<c-k>",
       scroll_up = "<c-l>"
@@ -13,8 +13,28 @@ return {
     },
     icons = {
       group = "…",
-    }
+    },
+    win = {
+      title = false,
+      padding = {1, 1},
+
+    },
+    show_help = false,
   },
+  config = function(_, opts)
+    require("which-key").setup(opts)
+
+    vim.api.nvim_set_hl(0, "WhichKeyNormal", {
+      bg = "#0A0A0A",
+      fg = "#ffffff",
+    })
+
+    vim.api.nvim_set_hl(0, "WhichKeyBorder", {
+      bg = "#0A0A0A",
+      fg = "#a4e400",
+    })
+  end,
+
   keys = {
     {
       "<leader>?",
