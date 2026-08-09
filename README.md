@@ -5,3 +5,6 @@ Este repositório reúne minhas configurações pessoais do Neovim, que fui mont
 Aqui estão minhas configurações, atalhos, temas e plugins que uso no dia a dia. Também serve para manter tudo salvo e facilitar quando precisar configurar o Neovim em outra máquina.
 
 Sinta-se à vontade para copiar minhas configurações ou usar qualquer parte delas no seu próprio Neovim 🙂.
+
+## Preview
+<video src="./preview.mp4" autoplay loop muted playsinline></video>
