@@ -4,7 +4,19 @@ return {
   'nvim-lualine/lualine.nvim',
   dependencies = { 'nvim-tree/nvim-web-devicons' },
   config = function()
-    require('lualine').setup {
+    local function diagnostc()
+      return {
+        'diagnostics',
+        sources = { 'nvim_diagnostic' },
+        symbols = { error = ' ', warn = ' ', info = ' ' },
+        diagnostics_color = {
+          error = { fg = "#ec5f67"},
+          warn = { fg = "#ECBE7B" },
+          info = { fg = "#008080" },
+        },
+      }
+    end
+    local setup = require('lualine').setup {
       options = {
         icons_enabled = true,
         theme = 'auto', -- pode trocar por 'gruvbox', 'dracula', 'catppuccin', etc.
@@ -19,9 +31,8 @@ return {
       },
       sections = {
         lualine_a = { { 'mode', separator = { left = '' }, right_padding = 2 } },
-        lualine_b = { 'branch', 'diff', 'diagnostics' },
-        lualine_c = { 'filename' },
-        lualine_x = { 'encoding', 'fileformat', 'filetype' },
+        lualine_b = { 'filetype', 'filename', diagnostics},
+        lualine_c = { 'diff', 'diagnostics' },
         lualine_y = { 'progress' },
         lualine_z = { { 'location', separator = { right = '' }, left_padding = 2 } }
       },
@@ -38,5 +49,16 @@ return {
       inactive_winbar = {},
       extensions = { 'nvim-tree', 'lazy', 'quickfix' }
     }
+
+    table.insert(setup.sections.lualine_b, {
+      'diagnostics',
+      sources = { 'nvim_diagnostic' },
+      symbols = { error = ' ', warn = ' ', info = ' ' },
+      diagnostics_color = {
+        error = { fg = "#ec5f67"},
+        warn = { fg = "#ECBE7B" },
+        info = { fg = "#008080" },
+      },
+    })
   end
 }
