@@ -23,6 +23,11 @@ vim.cmd("filetype indent on")
 vim.cmd("set colorcolumn=80")
 vim.cmd("highlight ColorColumn guibg=#0a0a0a")
 
+-- Group separador de janelas
+vim.api.nvim_set_hl(0, "WinSeparator", {
+  fg = "#a4e400",
+})
+
 -- Personaliza coluna de numeros
 vim.opt.number = true
 vim.opt.signcolumn = "yes"
@@ -31,15 +36,15 @@ vim.opt.numberwidth = 4
 -- Personaliza coluna de numeros
 vim.opt.statuscolumn = "%=%{printf('%s ', v:lnum)}%s"
 
--- Personaliza coluna de numeros
+-- Group coluna de numeros
 vim.api.nvim_set_hl(0, "LineNr", {
-  fg = "#666666", -- cor do numero
-  bg = "#0a0a0a", -- cor do background
+  fg = "#666666",
+  bg = "#0a0a0a",
 })
 
--- Personalina coluna de sinais
+-- Group coluna de sinais
 vim.api.nvim_set_hl(0, "SignColumn", {
-  bg = "#000000", -- cor do backtround
+  bg = "#000000",
 })
 
 -- Personaliza icons da coluna de sinais
