@@ -19,6 +19,11 @@ return {
             }
           },
 
+          borderchars = {
+            "─", "│", "─", "│",
+            "┌", "┐", "┘", "└",
+          },
+
           -- Personaliza a janela do telescope
           layout_strategy = "horizontal",
           layout_config = {
@@ -32,6 +37,19 @@ return {
           sorting_strategy = "ascending",
         }
       }
+
+      -- Group principal
+      vim.api.nvim_set_hl(0, "TelescopeNormal", {
+        bg = "#0A0A0A",
+        fg = "#FFFFFF",
+      })
+
+      -- Group bordas
+      vim.api.nvim_set_hl(0, "TelescopeBorder", {
+        bg = "#0A0A0A",
+        fg = "#a4e400",
+        -- fg = "#ff9700", -- Segunda opção de cor
+      })
     end
   }
 }
