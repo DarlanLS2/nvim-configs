@@ -18,12 +18,13 @@ return {
     opts = {
       default_component_configs = {
         modified = {
-          symbol = "✎ ",
+          symbol = "󱙃 ",
         },
         git_status = {
           symbols = {
-            modified = "⚒",
-            unstaged  = "⛶",
+            modified = "",
+            unstaged  = "󰛃",
+            staged  = "󰛃",
           }
         },
         indent = {
@@ -46,7 +47,7 @@ return {
         },
       },
 
-      filesystem = {          -- aqui, fora do window!
+      filesystem = {
         filtered_items = {
           visible = true,
           hide_dotfiles = false,
@@ -57,24 +58,29 @@ return {
     config = function(_, opts)
       require("neo-tree").setup(opts)
 
-      -- Group do background
       vim.api.nvim_set_hl(0, "NeoTreeNormal", {
         bg = "#0a0a0a",
       })
 
-      -- Group da linha selecionada
       vim.api.nvim_set_hl(0, "NeoTreeCursorLine", {
         bg = "#262626",
       })
 
-      -- Group do separador de janela
       vim.api.nvim_set_hl(0, "NeoTreeWinSeparator", {
         fg = "#0a0a0a",
       })
 
-      -- Group dos icons de indentação
       vim.api.nvim_set_hl(0, "NeoTreeIndentMarker", {
         fg = "#ff9700",
+      })
+
+      vim.api.nvim_set_hl(0, "NeoTreeGitModified", {
+        -- fg = "#af87ff",
+        fg = "#f5c542",
+      })
+
+      vim.api.nvim_set_hl(0, "NeoTreeGitUnstaged", {
+        fg = "#D74A33",
       })
     end
   }
