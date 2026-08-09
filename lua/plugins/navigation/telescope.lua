@@ -2,7 +2,7 @@
 -- registros, ETC.
 return {
   {
-    'nvim-telescope/telescope.nvim', tag = '0.1.8',
+    'nvim-telescope/telescope.nvim',
 
     dependencies = {
       'nvim-lua/plenary.nvim',
@@ -24,13 +24,12 @@ return {
           layout_config = {
             horizontal = {
               prompt_position = "top",
-              width = { padding = 0 },
-              height = { padding = 0 },
-              preview_width = 0.5,
+              width = { padding = 0.1 },
+              height = { padding = 0.05 },
+              preview_width = 0.4,
             },
           },
           sorting_strategy = "ascending",
-
         }
       }
     end
