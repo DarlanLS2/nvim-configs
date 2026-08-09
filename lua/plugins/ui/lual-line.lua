@@ -1,27 +1,67 @@
+---@diagnostic disable: unused-local
 -- Este plugin é o que faz aparecer esta barra com varias informações na parte 
 -- de baixo
 return {
   'nvim-lualine/lualine.nvim',
+
   dependencies = { 'nvim-tree/nvim-web-devicons' },
+
   config = function()
-    local function diagnostc()
-      return {
+
+    -- Muda cores -----------------------------------------------------------
+    local theme = require('lualine.themes.auto')
+
+    theme.normal.a.bg = '#ff9700'
+    theme.normal.b.bg = '#0A0A0A'
+    theme.normal.c.bg = '#0A0A0A'
+
+    theme.insert.a.bg = '#62d8f1'
+    theme.insert.b.bg = '#0A0A0A'
+
+    theme.visual.a.bg = '#fc1a70'
+    theme.visual.b.bg = '#0A0A0A'
+
+    theme.command.a.bg = '#0087ff'
+    theme.command.a.fg = '#000001'
+    theme.command.b.bg = '#0A0A0A'
+
+    -- Muda components ------------------------------------------------------
+    local c_filetype = {
+        'filetype',
+        padding = { left = 1, right = 0 },
+        icon_only = true,
+        color = { fg = '#ffffff' }
+    }
+
+    local c_filename = {
+        'filename',
+        color = { fg = '#ffffff' },
+        padding = { left = 0, right = 1 },
+    }
+
+    local c_diagnostics = {
         'diagnostics',
         sources = { 'nvim_diagnostic' },
-        symbols = { error = ' ', warn = ' ', info = ' ' },
+        always_visible = true,
+        symbols = { error = ' ', warn = ' ', info = '󰬐 ', hint = '󱍄 ' },
         diagnostics_color = {
-          error = { fg = "#ec5f67"},
-          warn = { fg = "#ECBE7B" },
-          info = { fg = "#008080" },
+          error = { fg = "#fc1a70"},
+          info = { fg = "#0087ff" },
         },
       }
-    end
-    local setup = require('lualine').setup {
+
+    local c_progress = {
+        'progress',
+        color = { fg = '#ffffff'}
+      }
+
+    -- Config --------------------------------------------------------------
+    require('lualine').setup {
       options = {
         icons_enabled = true,
-        theme = 'auto', -- pode trocar por 'gruvbox', 'dracula', 'catppuccin', etc.
-        component_separators = { left = '│', right = '│' },
-        section_separators = { left = '', right = '' },
+        theme = theme, -- Tema "auto" com minhas modificações
+        component_separators = { left = '', right = '' },
+        section_separators = { left = ' ', right = ' ' },
         disabled_filetypes = {
           statusline = {},
           winbar = {},
@@ -29,13 +69,15 @@ return {
         always_divide_middle = true,
         globalstatus = true,
       },
+
+      -- Sections são os espaços na linha [ a | b | c            x | y | z ]
       sections = {
-        lualine_a = { { 'mode', separator = { left = '' }, right_padding = 2 } },
-        lualine_b = { 'filetype', 'filename', diagnostics},
-        lualine_c = { 'diff', 'diagnostics' },
-        lualine_y = { 'progress' },
-        lualine_z = { { 'location', separator = { right = '' }, left_padding = 2 } }
-      },
+        lualine_a = { { 'mode', right_padding = 2 } },
+        lualine_b = { c_filetype, c_filename, c_diagnostics },
+        lualine_c = { 'diff' },
+        lualine_x = {},
+        lualine_y = { c_progress },
+        lualine_z = { { 'location', left_padding = 2 } } },
       inactive_sections = {
         lualine_a = {},
         lualine_b = {},
@@ -49,16 +91,5 @@ return {
       inactive_winbar = {},
       extensions = { 'nvim-tree', 'lazy', 'quickfix' }
     }
-
-    table.insert(setup.sections.lualine_b, {
-      'diagnostics',
-      sources = { 'nvim_diagnostic' },
-      symbols = { error = ' ', warn = ' ', info = ' ' },
-      diagnostics_color = {
-        error = { fg = "#ec5f67"},
-        warn = { fg = "#ECBE7B" },
-        info = { fg = "#008080" },
-      },
-    })
   end
 }
