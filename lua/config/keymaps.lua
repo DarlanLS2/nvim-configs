@@ -239,35 +239,43 @@ end
 
 function Keymaps.telescope()
   vim.keymap.set("n", "<leader>ft", "<cmd>TodoTelescope<CR>", {
-    desc = "Abrir menu de busca de TODOs"
+    desc = "Buscar TODOs"
   })
 
-  vim.keymap.set("n", "<leader>fg", require("telescope.builtin").live_grep, {
-    desc = "Abrir menu de busca de padrões(palavras)"
-  })
-
-  vim.keymap.set("n", "<leader>fg", require("telescope.builtin").lsp_type_definitions, {
-    desc = "Abrir menu de busca de padrões(palavras)"
+  vim.keymap.set("n", "<leader>fm", "<cmd>Telescope notify<CR>", {
+    desc = "Buscar Mensagens do Notify"
   })
 
   vim.keymap.set("n", "<leader>ff", require("telescope.builtin").find_files, {
-    desc = "Abrir menu de busca de arquivos"
+    desc = "Buscar Arquivos"
   })
 
-  vim.keymap.set("n", "<leader>fr", require("telescope.builtin").registers, {
-    desc = "Abrir menu de busca de registros"
+  vim.keymap.set("n", "<leader>fh", require("telescope.builtin").help_tags, {
+    desc = "Buscar Help tags"
   })
 
   vim.keymap.set("n", "<leader>fd", require("telescope.builtin").diagnostics, {
-    desc = "Abrir menu de busca de erros"
+    desc = "Buscar Diagnostics"
   })
 
   vim.keymap.set("n", "<leader>fk", require("telescope.builtin").keymaps, {
-    desc = "Abrir menu de busca de atalhos "
+    desc = "Buscar Keymaps"
   })
 
   vim.keymap.set("n", "<leader>fs", require("telescope.builtin").lsp_document_symbols, {
-    desc = "Abrir menu de busca de symbols"
+    desc = "Buscar Symbols"
+  })
+
+  vim.keymap.set("n", "<leader>fc", require("telescope.builtin").current_buffer_fuzzy_find, {
+    desc = "Buscar Padrão no atual Arquivo"
+  })
+
+  vim.keymap.set("n", "<leader>fg", function()
+    require("telescope.builtin").live_grep {
+      cwd = require("telescope.utils").buffer_dir()
+    }
+  end, {
+    desc = "Buscar Padrões no atual Projeto"
   })
 
   vim.keymap.set("n", "<leader>fn", function()
@@ -275,7 +283,7 @@ function Keymaps.telescope()
       cwd = vim.fn.stdpath("config")
     }
   end, {
-  desc = "Abrir menu de busca no diretorio de configuração do Nvim"})
+  desc = "Buscar Arquivos de configuração do Nvim"})
 end
 
 function Keymaps.neoTree()
@@ -285,20 +293,20 @@ function Keymaps.neoTree()
 end
 
 function Keymaps.lsp()
-  vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, {
-    desc = "Mostrar menu de diagnostico"
+  vim.keymap.set('n', '<leader>le', vim.diagnostic.open_float, {
+    desc = "Exibir diagnostico"
   })
 
-  vim.keymap.set('n', '<leader>r', vim.lsp.buf.hover, {
-    desc = "Mostrar documentação do codigo sob o cursor"
+  vim.keymap.set('n', '<leader>ld', vim.lsp.buf.hover, {
+    desc = "Exibir documentação"
   })
 
-  vim.keymap.set('n', '<leader>gd', vim.lsp.buf.definition, {
-    desc = "Ir até a definição da que esta embaixo do cursor"
+  vim.keymap.set('n', '<leader>lc', vim.lsp.buf.code_action, {
+    desc = "Exibir ações de codigo"
   })
 
-  vim.keymap.set('n', '<leader>gr', vim.lsp.buf.document_symbol, {
-    desc = "Ir até a definição da que esta embaixo do cursor"
+  vim.keymap.set('n', '<leader>lr', vim.lsp.buf.rename, {
+    desc = "Renomear symbol"
   })
 end
 
