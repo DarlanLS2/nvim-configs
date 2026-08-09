@@ -21,16 +21,38 @@ vim.cmd("filetype on")
 vim.cmd("filetype plugin on")
 vim.cmd("filetype indent on")
 vim.cmd("set colorcolumn=80")
-vim.cmd("highlight ColorColumn guibg=#4B4B4B")
+vim.cmd("highlight ColorColumn guibg=#0a0a0a")
 
-
+-- Personaliza coluna de numeros
 vim.opt.number = true
 vim.opt.signcolumn = "yes"
-vim.opt.numberwidth = 7
+vim.opt.numberwidth = 4
 
--- Personaliza barra de numeros deixando um espaço e um pipe("|") entre a barra
--- lateral e o codigo
-vim.opt.statuscolumn = "%=%{printf('%4s', v:lnum)}  │ "
+-- Personaliza coluna de numeros
+vim.opt.statuscolumn = "%=%{printf('%s ', v:lnum)}%s"
+
+-- Personaliza coluna de numeros
+vim.api.nvim_set_hl(0, "LineNr", {
+  fg = "#666666", -- cor do numero
+  bg = "#0a0a0a", -- cor do background
+})
+
+-- Personalina coluna de sinais
+vim.api.nvim_set_hl(0, "SignColumn", {
+  bg = "#000000", -- cor do backtround
+})
+
+-- Personaliza icons da coluna de sinais
+vim.diagnostic.config({
+  signs = {
+    text = {
+      [vim.diagnostic.severity.ERROR] = "󰅚",
+      [vim.diagnostic.severity.WARN]  = "󰀪",
+      [vim.diagnostic.severity.INFO]  = "󰋼",
+      [vim.diagnostic.severity.HINT]  = "󰌵",
+    },
+  },
+})
 
 -- Desativa numeração e barra lateral no Neo-tree
 vim.api.nvim_create_autocmd({ "FileType", "BufWinEnter" }, {
