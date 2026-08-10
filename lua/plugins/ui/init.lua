@@ -7,4 +7,5 @@ return {
   require("plugins.ui.noice"),
   require("plugins.ui.notify"),
   require("plugins.ui.runner_nvim"),
+  require("plugins.ui.gitsigns"),
 }
