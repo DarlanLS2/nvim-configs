@@ -36,15 +36,30 @@ vim.api.nvim_set_hl(0, "WinSeparator", {
   fg = "#a4e400",
 })
 
+-- Search (/) ─────────────────────────────────────────────────────
+
+-- Define a cor do currently search
+vim.api.nvim_set_hl(0, "Search", {
+  fg = "#000000",
+  bg = "#83dc78"
+})
+
+-- Define a cor do search
+vim.api.nvim_set_hl(0, "IncSearch", {
+  fg = "#ffffff",
+  bg = "#ff9700"
+})
+
 -- Barra lateral ────────────────────────────────────────────────────────────
+-- codigo adicionado
 
 -- Personaliza a coluna de numeros
 vim.opt.number = true
 vim.opt.signcolumn = "yes"
 vim.opt.numberwidth = 4
 
--- Personaliza a coluna de status
-vim.opt.statuscolumn = "%=%{printf('%s ', v:lnum)}%s"
+-- Personaliza a coluna de status 
+vim.opt.statuscolumn = "%=%{printf(' %s ', v:lnum)}%s"
 
 -- Define as cores da coluna de numeros
 vim.api.nvim_set_hl(0, "LineNr", {
