@@ -1,0 +1,57 @@
+*notes.txt*    Minhas anotações de ajuda
+
+==============================================================================
+Macros                                                        *notes.macros*
+
+Gravando um macro                                     *notes.macros.gravando*
+
+Os comandos default foram trocados por esses:
+    <leader>qj
+        Iniciar gravação. 
+        Grava tudo que for digitado no register 'j'.
+
+    <leader>q
+        Parar gravação.
+
+    <leader>qJ
+        Acrescentar comandos a uma macro existente.
+        'J' (maiúsculo) abre o register em modo append.
+
+Rodando um macro                                       *notes.macros.rodando*
+
+Os comandos default foram trocados por esses:
+    qa
+        Executar uma vez.
+
+    10qa
+        Executar um numero  determinado de vezes.
+
+    qq
+        Repetir o último macro executada.
+
+==============================================================================
+Comandos                                                    *notes.comandos*
+
+:normal                                              *notes.comandos.normal*
+
+Executa comandos do modo Normal a partir da linha de comando. Pode ser 
+abreviado para :norm.
+
+Exemplo:
+
+    :norm dd        
+        Equivale a executar `dd` no modo Normal.
+
+Tambem é possivel rodar um :normal para cada linha selecionada no modo visual. 
+Exemplo: 
+    
+    :'<,'>norm Ça;   
+        Coloca ';' no fim de cada linha.
+
+==============================================================================
+Help files                                                  *notes.helpfiles*
+
+Para transfomar sua pasta em uma fonte de documentação pesquisavel, rode:
+
+    :helptags ~/.config/nvim/doc
+

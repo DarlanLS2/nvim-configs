@@ -1,8 +1,8 @@
 !_TAG_FILE_ENCODING	utf-8	//
-macros-concepts	macros.txt	/*macros-concepts*
-macros-contents	macros.txt	/*macros-contents*
-macros-edit	macros.txt	/*macros-edit*
-macros-record	macros.txt	/*macros-record*
-macros-run	macros.txt	/*macros-run*
-macros-tips	macros.txt	/*macros-tips*
-macros.txt	macros.txt	/*macros.txt*
+notes.comandos	notes.txt	/*notes.comandos*
+notes.comandos.normal	notes.txt	/*notes.comandos.normal*
+notes.helpfiles	notes.txt	/*notes.helpfiles*
+notes.macros	notes.txt	/*notes.macros*
+notes.macros.gravando	notes.txt	/*notes.macros.gravando*
+notes.macros.rodando	notes.txt	/*notes.macros.rodando*
+notes.txt	notes.txt	/*notes.txt*

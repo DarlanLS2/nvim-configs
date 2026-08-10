@@ -85,3 +85,11 @@ vim.opt.guicursor = {
   "r-cr:hor20",
   "o:hor50",
 }
+
+-- Modifica o filetype dos arquivos .txt criados 
+-- no doc/ para que os highlight apareçam
+vim.filetype.add({
+  pattern = {
+    [".*/doc/.*%.txt"] = "help",
+  },
+})
