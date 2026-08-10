@@ -27,33 +27,44 @@ return {
 
     -- Muda components ------------------------------------------------------
     local c_filetype = {
-        'filetype',
-        padding = { left = 1, right = 0 },
-        icon_only = true,
-        color = { fg = '#ffffff' }
+      'filetype',
+      padding = { left = 1, right = 0 },
+      icon_only = true,
+      color = { fg = '#ffffff' }
     }
 
     local c_filename = {
-        'filename',
-        color = { fg = '#ffffff' },
-        padding = { left = 0, right = 1 },
+      'filename',
+      color = { fg = '#ffffff' },
+      padding = { left = 0, right = 1 },
     }
 
     local c_diagnostics = {
-        'diagnostics',
-        sources = { 'nvim_diagnostic' },
-        always_visible = true,
-        symbols = { error = ' ', warn = ' ', info = '󰬐 ', hint = '󱍄 ' },
-        diagnostics_color = {
-          error = { fg = "#fc1a70"},
-          info = { fg = "#0087ff" },
-        },
-      }
+      'diagnostics',
+      sources = { 'nvim_diagnostic' },
+      always_visible = true,
+      symbols = { error = ' ', warn = ' ', info = '󰬐 ', hint = '󱍄 ' },
+      diagnostics_color = {
+        error = { fg = "#fc1a70"},
+        info = { fg = "#0087ff" },
+      },
+    }
 
     local c_progress = {
-        'progress',
-        color = { fg = '#ffffff'}
-      }
+      'progress',
+      color = { fg = '#ffffff'}
+    }
+
+    -- Componente que aparece quando esta gravando um macro
+    local function macro_recording()
+      local reg = vim.fn.reg_recording()
+
+      if reg ~= "" then
+        return " " .. reg
+      end
+
+      return ""
+    end
 
     -- Config --------------------------------------------------------------
     require('lualine').setup {
@@ -76,20 +87,20 @@ return {
         lualine_b = { c_filetype, c_filename, c_diagnostics },
         lualine_c = { 'diff' },
         lualine_x = {},
-        lualine_y = { c_progress },
+        lualine_y = { macro_recording, c_progress },
         lualine_z = { { 'location', left_padding = 2 } } },
-      inactive_sections = {
-        lualine_a = {},
-        lualine_b = {},
-        lualine_c = { 'filename' },
-        lualine_x = { 'location' },
-        lualine_y = {},
-        lualine_z = {}
-      },
-      tabline = {},
-      winbar = {},
-      inactive_winbar = {},
-      extensions = { 'nvim-tree', 'lazy', 'quickfix' }
-    }
-  end
-}
+        inactive_sections = {
+          lualine_a = {},
+          lualine_b = {},
+          lualine_c = { 'filename' },
+          lualine_x = { 'location' },
+          lualine_y = {},
+          lualine_z = {}
+        },
+        tabline = {},
+        winbar = {},
+        inactive_winbar = {},
+        extensions = { 'nvim-tree', 'lazy', 'quickfix' }
+      }
+    end
+  }
