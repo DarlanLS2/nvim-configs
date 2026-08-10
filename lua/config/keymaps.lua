@@ -152,6 +152,26 @@ function Keymaps.normal()
     silent = true,
     desc = "Criar linha abaixo do cursor"
   })
+
+  vim.keymap.set("n", "m", "'", {
+    silent = true,
+    desc = "Ir a mark"
+  })
+
+  vim.keymap.set("n", "<leader>m", "m", {
+    silent = true,
+    desc = "Criar mark"
+  })
+
+  vim.keymap.set("n", "q", "@", {
+    silent = true,
+    desc = "Rodar macro"
+  })
+
+  vim.keymap.set("n", "<leader>q", "q", {
+    silent = true,
+    desc = "Criar macro"
+  })
 end
 
 function Keymaps.visual()
