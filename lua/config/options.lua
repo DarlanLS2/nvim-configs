@@ -1,3 +1,5 @@
+-- Opções gerais ────────────────────────────────────────────────────────────
+
 vim.o.termguicolors = true
 vim.cmd('syntax on')
 vim.cmd("set expandtab")
@@ -20,29 +22,37 @@ vim.cmd("set autoread")
 vim.cmd("filetype on")
 vim.cmd("filetype plugin on")
 vim.cmd("filetype indent on")
+
+-- Coluna de limite de linha ────────────────────────────────────────────────
+
+-- Cria a coluna de indicação de limite de linha
 vim.cmd("set colorcolumn=80")
 vim.cmd("highlight ColorColumn guibg=#0a0a0a")
 
--- Group separador de janelas
+-- Separador de Janelas ─────────────────────────────────────────────────────
+
+-- Define a cor do separador de janelas
 vim.api.nvim_set_hl(0, "WinSeparator", {
   fg = "#a4e400",
 })
 
--- Personaliza coluna de numeros
+-- Barra lateral ────────────────────────────────────────────────────────────
+
+-- Personaliza a coluna de numeros
 vim.opt.number = true
 vim.opt.signcolumn = "yes"
 vim.opt.numberwidth = 4
 
--- Personaliza coluna de numeros
+-- Personaliza a coluna de status
 vim.opt.statuscolumn = "%=%{printf('%s ', v:lnum)}%s"
 
--- Group coluna de numeros
+-- Define as cores da coluna de numeros
 vim.api.nvim_set_hl(0, "LineNr", {
   fg = "#666666",
   bg = "#0a0a0a",
 })
 
--- Group coluna de sinais
+-- Define as cores da coluna de sinais
 vim.api.nvim_set_hl(0, "SignColumn", {
   bg = "#000000",
 })
@@ -59,6 +69,8 @@ vim.diagnostic.config({
   },
 })
 
+-- Neo-tree ─────────────────────────────────────────────────────────────────
+
 -- Desativa numeração e barra lateral no Neo-tree
 vim.api.nvim_create_autocmd({ "FileType", "BufWinEnter" }, {
   pattern = "neo-tree",
@@ -72,6 +84,10 @@ vim.api.nvim_create_autocmd({ "FileType", "BufWinEnter" }, {
   end,
 })
 
+
+-- Formatação ───────────────────────────────────────────────────────────────
+
+-- Desativa a continuação do comentario na proxima linha com "o"
 vim.api.nvim_create_autocmd("FileType", {
     pattern = "*",
     callback = function()
@@ -79,6 +95,10 @@ vim.api.nvim_create_autocmd("FileType", {
     end,
 })
 
+
+-- Cursor ───────────────────────────────────────────────────────────────────
+
+-- Muda o formato do cursor de acordo com o modo
 vim.opt.guicursor = {
   "n-v-c:block",
   "i-ci-ve:ver25",
@@ -86,10 +106,13 @@ vim.opt.guicursor = {
   "o:hor50",
 }
 
--- Modifica o filetype dos arquivos .txt criados 
--- no doc/ para que os highlight apareçam
+-- Documentação ─────────────────────────────────────────────────────────────
+
+-- Modifica o filetype dos arquivos .txt criados no diretorio doc/ 
+-- para que os highlight da documentação do nvim apareçam
 vim.filetype.add({
   pattern = {
     [".*/doc/.*%.txt"] = "help",
   },
 })
+
