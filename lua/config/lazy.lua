@@ -31,4 +31,7 @@ require("lazy").setup({
   spec = {
     { import = "plugins" },
   },
+  dev = {
+    path = "~/Desktop",
+  },
 })

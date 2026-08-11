@@ -1,4 +1,5 @@
--- repository: https://github.com/TheLazyCat00/runner-nvim
+-- original repository: https://github.com/TheLazyCat00/runner-nvim
+-- my forked: https://github.com/DarlanLS2/runner-nvim
 -- usage: 
 --  <leader>o = Digitar um comando;
 --  <leader>r = Roda o ultimo comando
@@ -6,7 +7,12 @@
 --  q = Fecha o popup do terminal
 
 return {
-  "TheLazyCat00/runner-nvim",
+  "DarlanLS2/runner-nvim",
+
+  -- Uncomment this for local development:
+  -- dir = "~/Desktop/runner-nvim",
+  -- name = "runner-nvim",
+
   opts = {}, -- This is required to call setup()
   keys = {
     { "<leader>r", function () require("runner-nvim").runLast() end, desc = "Run last cmd" },
