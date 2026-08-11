@@ -29,11 +29,16 @@ vim.cmd("filetype indent on")
 vim.cmd("set colorcolumn=80")
 vim.cmd("highlight ColorColumn guibg=#0a0a0a")
 
--- Separador de Janelas ─────────────────────────────────────────────────────
+-- Janelas ─────────────────────────────────────────────────────
 
 -- Define a cor do separador de janelas
 vim.api.nvim_set_hl(0, "WinSeparator", {
   fg = "#a4e400",
+})
+
+-- Define o icone que preenche o final do buffer "~"
+vim.opt.fillchars:append({
+  eob = " ",
 })
 
 -- Search (/) ─────────────────────────────────────────────────────
