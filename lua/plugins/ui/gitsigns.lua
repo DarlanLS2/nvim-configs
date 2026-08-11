@@ -1,9 +1,14 @@
 return {
   "lewis6991/gitsigns.nvim",
 
-  opts = {},
-
-  config = function()
-
-  end
+  opts = {
+    signs = {
+      delete    = { text = "┃" },
+      topdelete = { text = "┃" },
+    },
+    signs_staged = {
+      delete    = { text = "┃" },
+      topdelete = { text = "┃" },
+    },
+  },
 }
