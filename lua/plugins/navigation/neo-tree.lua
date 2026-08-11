@@ -22,6 +22,7 @@ return {
         },
         git_status = {
           symbols = {
+            untracked = "󰞋",
             modified = "",
             unstaged  = "󰛃",
             staged  = "󰛃",
@@ -48,6 +49,12 @@ return {
       },
 
       filesystem = {
+        window = {
+          mappings = {
+            ["Ç"] = "expand_all_subnodes",
+            ["J"] = "close_all_subnodes"
+          }
+        },
         filtered_items = {
           visible = true,
           hide_dotfiles = false,
@@ -81,6 +88,10 @@ return {
 
       vim.api.nvim_set_hl(0, "NeoTreeGitUnstaged", {
         fg = "#D74A33",
+      })
+
+      vim.api.nvim_set_hl(0, "NeoTreeGitUntracked", {
+        fg = "#a4e400",
       })
     end
   }
