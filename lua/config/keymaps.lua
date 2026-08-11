@@ -330,6 +330,32 @@ function Keymaps.lsp()
   })
 end
 
+function Keymaps.gitsigns()
+  vim.keymap.set('n', '<leader>gh', function()
+    require("gitsigns").preview_hunk_inline()
+  end, {
+    desc = "Abrir hunk da linha"
+  })
+
+  vim.keymap.set('n', '<leader>gl', function()
+    require("gitsigns").nav_hunk("next", {target = "all"})
+  end, {
+    desc = "Abrir hunk seguinte"
+  })
+
+  vim.keymap.set('n', '<leader>gk', function()
+    require("gitsigns").nav_hunk("prev", {target = "all"})
+  end, {
+    desc = "Abrir hunk anterior"
+  })
+
+  vim.keymap.set('n', '<leader>gs', function()
+    require("gitsigns").stage_buffer()
+  end, {
+    desc = "Stage o arquivo inteiro"
+  })
+end
+
 function Keymaps.setup()
   Keymaps.normal()
   Keymaps.visual()
@@ -337,6 +363,7 @@ function Keymaps.setup()
   Keymaps.telescope()
   Keymaps.neoTree()
   Keymaps.lsp()
+  Keymaps.gitsigns()
 end
 
 Keymaps.setup()
