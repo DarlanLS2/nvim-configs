@@ -29,9 +29,9 @@ return {
           layout_config = {
             horizontal = {
               prompt_position = "top",
-              width = { padding = 0.1 },
-              height = { padding = 0.05 },
-              preview_width = 0.4,
+              width = 0.70,
+              height = 0.99,
+              preview_width = 0.62,
             },
           },
           sorting_strategy = "ascending",
